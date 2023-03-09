@@ -1,23 +1,36 @@
-
 import './App.css';
 
-import { PieChart } from 'react-minimal-pie-chart';
+import { Chart } from "react-google-charts";
 
-function App() {
+export const data = [
+  ["Настроение", "сколько раз думаю за день"],
+  ["Нытик", 11],
+  ["Уверенный", 2],
+  ["Надо было на ноготочки", 2],
+  ["Гений", 2],
+  ["О, а чё, так можно было?!", 7],
+];
+
+export const options = {
+  title: "Мое обычное состояние",
+  is3D: true,
+};
+
+export function App() {
   return (
     <div className="App">
       <header className="App-header">
         <h2>График моего настроения в программировании</h2>
-        <div id="mypie">
-        <PieChart
-  data={[
-    { title: 'Уверенность', value: 10, color: '#E38627' },
-    { title: 'Упрямство', value: 50, color: '#C13C37' },
-    { title: 'Нытье', value: 40, color: '#6A2135' },
-  ]}
-/>
-        </div>
-      
+        <div id="myPie">
+          
+          </div>   
+        <Chart
+      chartType="PieChart"
+      data={data}
+      options={options}
+      width={"100%"}
+      height={"400px"}
+    />
       </header>
     </div>
   );
